@@ -14,6 +14,11 @@ if [ -z "$IMAGE_NAME" ]; then
 	exit 1
 fi
 
+if [ "$(id -u)" -ne "0" ]; then
+	echo "This script requires root (not really - but make_image.sh will fail later without root)"
+	exit 1
+fi
+
 fallocate -l $IMAGE_SIZE $IMAGE_NAME
 
 cat << EOF | fdisk $IMAGE_NAME

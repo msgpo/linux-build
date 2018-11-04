@@ -100,16 +100,19 @@ killall -KILL gpg-agent
 pacman -Sy --noconfirm
 pacman -Rsn --noconfirm linux-aarch64
 pacman -S --noconfirm --needed dosfstools curl xz iw rfkill netctl dialog wpa_supplicant alsa-utils \
-	pv linux-pine64 linux-pine64-headers networkmanager dkms-rtl8723cs uboot-pine64-git
+	pv linux-pine64 linux-pine64-headers networkmanager dkms-rtl8723cs uboot-pine64-git \
+	rtl8723bt-firmware
 
 # Install XFCE
 pacman -S --noconfirm xfce4 xorg-server xf86-input-libinput lxdm ttf-dejavu ttf-liberation firefox  \
       		pulseaudio nm-connection-editor network-manager-applet \
       		xfce4-pulseaudio-plugin \
+		blueman pulseaudio-bluetooth \
       		pulseaudio-alsa pavucontrol
 systemctl enable lxdm
 systemctl enable NetworkManager
-usermod -a -G network,video,audio,optical,storage,input,scanner,games,lp alarm
+systemctl enable bluetooth
+usermod -a -G network,video,audio,optical,storage,input,scanner,games,lp,rfkill alarm
 
 sed -i 's|^#en_US.UTF-8|en_US.UTF-8|' /etc/locale.gen
 cd /usr/share/i18n/charmaps
@@ -130,11 +133,10 @@ rm "$DEST/usr/bin/qemu-arm-static"
 mv "$DEST/etc/resolv.conf.dist" "$DEST/etc/resolv.conf"
 
 cp $OTHERDIR/asound.state $DEST/var/lib/alsa
-cp $OTHERDIR/pine64_first_boot.sh $DEST/usr/local/sbin/
 cp $OTHERDIR/resize_rootfs.sh $DEST/usr/local/sbin/
-cp $OTHERDIR/pine64-first-boot.service $DEST/etc/systemd/system/
 cp $OTHERDIR/modesetting.conf $DEST/etc/X11/xorg.conf.d/
 cp $OTHERDIR/sysrq.conf $DEST/etc/sysctl.d/
+cp $OTHERDIR/81-blueman.rules $DEST/etc/polkit-1/rules.d/
 
 echo "Installed rootfs to $DEST"
 
