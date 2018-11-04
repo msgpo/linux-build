@@ -2,7 +2,7 @@ state.Card {
 	control.1 {
 		iface MIXER
 		name 'Headphone Playback Volume'
-		value 59
+		value 46
 		comment {
 			access 'read write'
 			type INTEGER
@@ -10,7 +10,7 @@ state.Card {
 			range '0 - 63'
 			dbmin -9999999
 			dbmax 0
-			dbvalue.0 -400
+			dbvalue.0 -1700
 		}
 	}
 	control.2 {
@@ -27,7 +27,7 @@ state.Card {
 	control.3 {
 		iface MIXER
 		name 'Line Out Playback Volume'
-		value 10
+		value 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -35,7 +35,7 @@ state.Card {
 			range '0 - 31'
 			dbmin -9999999
 			dbmax 0
-			dbvalue.0 -3150
+			dbvalue.0 -9999999
 		}
 	}
 	control.4 {
@@ -116,8 +116,8 @@ state.Card {
 	control.10 {
 		iface MIXER
 		name 'DAC Playback Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -195,8 +195,8 @@ state.Card {
 	control.17 {
 		iface MIXER
 		name 'Line Out Source Playback Route'
-		value.0 'Mono Differential'
-		value.1 'Mono Differential'
+		value.0 Stereo
+		value.1 Stereo
 		comment {
 			access 'read write'
 			type ENUMERATED
@@ -238,7 +238,7 @@ state.sun50ia64audio {
 	control.1 {
 		iface MIXER
 		name 'Headphone Playback Volume'
-		value 41
+		value 0
 		comment {
 			access 'read write'
 			type INTEGER
@@ -246,14 +246,14 @@ state.sun50ia64audio {
 			range '0 - 63'
 			dbmin -9999999
 			dbmax 0
-			dbvalue.0 -2200
+			dbvalue.0 -9999999
 		}
 	}
 	control.2 {
 		iface MIXER
 		name 'Headphone Playback Switch'
-		value.0 true
-		value.1 true
+		value.0 false
+		value.1 false
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -347,7 +347,7 @@ state.sun50ia64audio {
 	control.9 {
 		iface MIXER
 		name 'Line Out Playback Volume'
-		value 16
+		value 28
 		comment {
 			access 'read write'
 			type INTEGER
@@ -355,7 +355,7 @@ state.sun50ia64audio {
 			range '0 - 31'
 			dbmin -9999999
 			dbmax 0
-			dbvalue.0 -2250
+			dbvalue.0 -450
 		}
 	}
 	control.10 {
@@ -383,8 +383,8 @@ state.sun50ia64audio {
 	control.12 {
 		iface MIXER
 		name 'AIF1 Data Digital ADC Capture Switch'
-		value.0 false
-		value.1 false
+		value.0 true
+		value.1 true
 		comment {
 			access 'read write'
 			type BOOLEAN
@@ -407,8 +407,8 @@ state.sun50ia64audio {
 	control.14 {
 		iface MIXER
 		name 'Line Out Source Playback Route'
-		value.0 'Mono Differential'
-		value.1 'Mono Differential'
+		value.0 Stereo
+		value.1 Stereo
 		comment {
 			access 'read write'
 			type ENUMERATED
@@ -508,7 +508,7 @@ state.sun50ia64audio {
 	control.23 {
 		iface MIXER
 		name 'Mic1 Capture Switch'
-		value.0 false
+		value.0 true
 		value.1 false
 		comment {
 			access 'read write'
@@ -520,7 +520,7 @@ state.sun50ia64audio {
 		iface MIXER
 		name 'Mic2 Capture Switch'
 		value.0 false
-		value.1 false
+		value.1 true
 		comment {
 			access 'read write'
 			type BOOLEAN
