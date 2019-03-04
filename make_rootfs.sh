@@ -138,6 +138,7 @@ cp $OTHERDIR/resize_rootfs.sh $DEST/usr/local/sbin/
 cp $OTHERDIR/modesetting.conf $DEST/etc/X11/xorg.conf.d/
 cp $OTHERDIR/sysrq.conf $DEST/etc/sysctl.d/
 cp $OTHERDIR/81-blueman.rules $DEST/etc/polkit-1/rules.d/
+cp $OTHERDIR/8723cs.conf $DEST/etc/modprobe.d/
 # Probing gdk pixbuf modules fails on qemu with:
 # (process:30790): GLib-ERROR **: 20:53:40.468: getauxval () failed: No such file or directory
 # qemu: uncaught target signal 5 (Trace/breakpoint trap) - core dumped
